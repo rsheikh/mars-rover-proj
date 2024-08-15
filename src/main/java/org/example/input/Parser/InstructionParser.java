@@ -15,23 +15,15 @@ public class InstructionParser {
         String startPosition = "";
         String instructions = "";
         String regexMatch = Instruction.L.name() + Instruction.R.name() + Instruction.M.name();
-        boolean validLandingPosition = false;
 
+        //get plateau size
         plateauSize = PlateauParser.getPlateauSize();
         roverInstructions.add(plateauSize);
-
-        System.out.println("Enter your landing position and facing direction (x, y, direction):");
-        startPosition = scanner.next();
-        String[] startPosArray = startPosition.split(",");
-
-        while(startPosition.split(",").length != 3) {
-            System.out.println("You must provide 3 arguments in the format: (x,y,direction). Try again:");
-            startPosition = scanner.next();
-        }
-
+        //get start position
+        startPosition = LandingPositionParser.getStartPosition(plateauSize);
         roverInstructions.add(LandingPositionParser.validateStartPosition(scanner, startPosition, plateauSize));
 
-
+        //get instructions
         System.out.println("Enter your instructions for the Rover: ");
         instructions = scanner.next();
         if(instructions.matches("^["+ regexMatch+"]+$")) {

@@ -23,6 +23,7 @@ public class PlateauParser {
                 break;
             }
         }
+        //@TODO close scanner
         return plateauSize;
     }
 }
