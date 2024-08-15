@@ -17,15 +17,20 @@ public class InstructionParser {
         String regexMatch = Instruction.L.name() + Instruction.R.name() + Instruction.M.name();
         boolean validLandingPosition = false;
 
-        System.out.println("Enter size of the Plateau (x,y):");
-        plateauSize = scanner.next();
+        plateauSize = PlateauParser.getPlateauSize();
         roverInstructions.add(plateauSize);
 
         System.out.println("Enter your landing position and facing direction (x, y, direction):");
         startPosition = scanner.next();
-        roverInstructions.add(LandingPositionParser.validateLandingPosition(startPosition, plateauSize));
+        String[] startPosArray = startPosition.split(",");
 
-//        roverInstructions.add(startPosition);
+        while(startPosition.split(",").length != 3) {
+            System.out.println("You must provide 3 arguments in the format: (x,y,direction). Try again:");
+            startPosition = scanner.next();
+        }
+
+        roverInstructions.add(LandingPositionParser.validateStartPosition(scanner, startPosition, plateauSize));
+
 
         System.out.println("Enter your instructions for the Rover: ");
         instructions = scanner.next();
@@ -42,7 +47,7 @@ public class InstructionParser {
     }
 
     public static void parseInstructions(ArrayList<String> instructions) {
-        System.out.println("In parse method");
+        System.out.println("In parseInstructions method to set classes with values");
 
         //should return the final position - then elsewhere we do other things
     }

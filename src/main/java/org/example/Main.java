@@ -8,6 +8,7 @@ public class Main {
 
         System.out.println("Hello - welcome to the Rover App!");
 
+
         InstructionParser.getRoverInstructions();
     }
 }
