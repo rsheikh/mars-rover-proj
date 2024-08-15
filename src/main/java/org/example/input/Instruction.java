@@ -1,5 +1,4 @@
-package org.example.logic;
-
+package org.example.input;
 
 public enum Instruction {
     L,
