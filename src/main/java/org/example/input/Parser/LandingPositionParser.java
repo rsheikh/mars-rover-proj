@@ -31,7 +31,7 @@ public class LandingPositionParser {
         String[] landingPosArray = startPosition.split(",");
 
         if(landingPosArray[2].matches("^["+ regexMatch+"]+$")) {
-            if(landingPosArray[0].matches("[0-9]") && (landingPosArray[1].matches("[0-9]"))) {
+            if(landingPosArray[0].matches("[0-9]+") && (landingPosArray[1].matches("[0-9]+"))) {
 
                 withinPlateauScope = checkPositionFitsInPlateau(landingPosArray, plateauSizeArray, withinPlateauScope);
                 if(!withinPlateauScope) {
