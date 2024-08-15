@@ -16,7 +16,7 @@ public class InstructionParser {
         System.out.println("Enter your instructions for the Rover: ");
         instructions = scanner.next();
         if(instructions.matches("^["+ regexMatch+"]+$")) {
-            System.out.println("Yay good entry: " + instructions);
+            //Correct input
         } else {
             System.out.println("Instructions can only contain L, R or M only. Try again");
             instructions = scanner.next();
@@ -24,9 +24,18 @@ public class InstructionParser {
         return instructions;
     }
 
-    public static void parseInstructions(ArrayList<String> instructions) {
-        System.out.println("In parseInstructions method to set classes with values");
+    public static ArrayList<Instruction> parseInstructions(String instructions) {
+        ArrayList<Instruction> instructionList = new ArrayList<>();
+        String[] values = instructions.split("");
 
+        for(String instruction : values) {
+            if (instruction.equalsIgnoreCase(Instruction.L.toString()))
+                instructionList.add(Instruction.L);
+            else if (instruction.equalsIgnoreCase(Instruction.R.toString()))
+                instructionList.add(Instruction.R);
+            else if (instruction.equalsIgnoreCase(Instruction.M.toString()))
+                instructionList.add(Instruction.M);
+        }
+        return instructionList;
     }
-
 }

@@ -1,6 +1,8 @@
 package org.example.input.Parser;
 
 import org.example.input.CompassDirection;
+import org.example.input.Position;
+
 import java.util.Scanner;
 
 public class LandingPositionParser {
@@ -55,5 +57,23 @@ public class LandingPositionParser {
             return false;
         }
         return true;
+    }
+
+    public static Position parseStartingPosition(String startPositionInput) {
+        String[] startPositionValues = startPositionInput.split(",");
+        Position position = new Position();
+        position.setX(Integer.parseInt(startPositionValues[0]));
+        position.setY(Integer.parseInt(startPositionValues[1]));
+        String direction = startPositionValues[2];
+        if(direction.equalsIgnoreCase(CompassDirection.N.toString()))
+            position.setFacing(CompassDirection.N);
+        if(direction.equalsIgnoreCase(CompassDirection.E.toString()))
+            position.setFacing(CompassDirection.E);
+        if(direction.equalsIgnoreCase(CompassDirection.S.toString()))
+            position.setFacing(CompassDirection.S);
+        if(direction.equalsIgnoreCase(CompassDirection.W.toString()))
+            position.setFacing(CompassDirection.W);
+
+        return position;
     }
 }

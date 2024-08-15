@@ -28,9 +28,6 @@ public class InitiateRoverSetup {
         instructions = InstructionParser.getRoverInstructions();
         roverSetup.add(instructions);
 
-        System.out.println("Rover Instructions are: " + roverSetup);
-        InstructionParser.parseInstructions(roverSetup);
-
         return roverSetup;
     }
 }
