@@ -17,13 +17,4 @@ class PlateauParserTest {
         assertEquals(PlateauSize.getInstance(8,9),
                 PlateauSize.getInstance(Integer.parseInt(plateauValues[0]),Integer.parseInt(plateauValues[1])));
     }
-
-
-//    @Test
-//    @DisplayName("Test valid input for Plateau")
-//    void getPlateauSizeTest() {
-//        String input = "8,9";
-//
-//        assertEquals("8,9", PlateauParser.getPlateauSize());
-//    }
 }

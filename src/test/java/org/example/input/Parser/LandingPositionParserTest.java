@@ -15,8 +15,8 @@ class LandingPositionParserTest {
     ByteArrayOutputStream out = new ByteArrayOutputStream();
 
     @Test
-    @DisplayName("Return valid starting position within scope of Plateau size")
-    void getStartPositionTestWithinPlateauScope() {
+    @DisplayName("Test valid starting position within scope of Plateau size")
+    void getStartPositionWithinPlateauScopeTest() {
         String input = "9,9";
         String simulatedLandingPosition = "2,3,N";
         ByteArrayInputStream inputStream = new ByteArrayInputStream(simulatedLandingPosition.getBytes());
@@ -28,8 +28,8 @@ class LandingPositionParserTest {
     }
 
     @Test
-    @DisplayName("Return valid starting position out of scope of Plateau size")
-    void getStartPositionTestOutsidePlateauScope() {
+    @DisplayName("Test valid starting position out of scope of Plateau size")
+    void getStartPositionOutsidePlateauScopeTest() {
         String input = "9,9";
         String simulatedLandingPosition = "10,3,N";
         ByteArrayInputStream inputStream = new ByteArrayInputStream(simulatedLandingPosition.getBytes());
@@ -42,13 +42,5 @@ class LandingPositionParserTest {
 
         assertThrows(NoSuchElementException.class, () -> LandingPositionParser.getStartPosition(input));
         assertEquals(errMessage.trim(), out.toString().trim());
-    }
-
-    @Test
-    void checkPositionFitsInPlateau() {
-    }
-
-    @Test
-    void parseStartingPosition() {
     }
 }
