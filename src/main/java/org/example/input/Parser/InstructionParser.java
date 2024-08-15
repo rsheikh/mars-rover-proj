@@ -15,6 +15,7 @@ public class InstructionParser {
         String startPosition = "";
         String instructions = "";
         String regexMatch = Instruction.L.name() + Instruction.R.name() + Instruction.M.name();
+        boolean validLandingPosition = false;
 
         System.out.println("Enter size of the Plateau (x,y):");
         plateauSize = scanner.next();
@@ -22,7 +23,9 @@ public class InstructionParser {
 
         System.out.println("Enter your landing position and facing direction (x, y, direction):");
         startPosition = scanner.next();
-        roverInstructions.add(startPosition);
+        roverInstructions.add(LandingPositionParser.validateLandingPosition(startPosition, plateauSize));
+
+//        roverInstructions.add(startPosition);
 
         System.out.println("Enter your instructions for the Rover: ");
         instructions = scanner.next();
