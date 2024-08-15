@@ -16,17 +16,17 @@ public class InitiateRoverSetup {
         String plateauSize = "";
         String startPosition = "";
         String instructions = "";
-        String regexMatch = Instruction.L.name() + Instruction.R.name() + Instruction.M.name();
 
-        //get plateau size
         plateauSize = PlateauParser.getPlateauSize();
         roverSetup.add(plateauSize);
-        //get start position
+
         startPosition = LandingPositionParser.getStartPosition(plateauSize);
         roverSetup.add(LandingPositionParser.validateStartPosition(scanner, startPosition, plateauSize));
-        //get instructions
+
         instructions = InstructionParser.getRoverInstructions();
         roverSetup.add(instructions);
+
+        scanner.close();
 
         return roverSetup;
     }

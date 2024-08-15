@@ -13,18 +13,13 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("Hello - welcome to the Rover App!");
+        System.out.println("Hello - welcome to Red's Rover App!");
 
         ArrayList<String> instructions = InitiateRoverSetup.getUserInput();
-//        System.out.println("Validated Instructions: " + instructions);
 
         PlateauSize plateauSize = PlateauParser.parsePlateauInput(instructions.getFirst());
         Position landingPosition = LandingPositionParser.parseStartingPosition(instructions.get(1));
         ArrayList<Instruction> instructionList = InstructionParser.parseInstructions(instructions.getLast());
-
-//        System.out.println("Parsed Plateau: " + plateauSize);
-//        System.out.println("Parsed Landing Position: " + landingPosition);
-//        System.out.println("Parsed Instruction List: " + instructionList.stream().toString());
 
     }
 }

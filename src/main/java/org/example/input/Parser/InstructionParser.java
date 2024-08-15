@@ -12,7 +12,6 @@ public class InstructionParser {
         String instructions = "";
         String regexMatch = Instruction.L.name() + Instruction.R.name() + Instruction.M.name();
 
-        //get instructions
         System.out.println("Enter your instructions for the Rover: ");
         instructions = scanner.next();
         if(instructions.matches("^["+ regexMatch+"]+$")) {
