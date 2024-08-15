@@ -7,21 +7,10 @@ import java.util.Scanner;
 
 public class InstructionParser {
 
-    public static void getRoverInstructions() {
+    public static String getRoverInstructions() {
         Scanner scanner = new Scanner(System.in);
-
-        ArrayList<String> roverInstructions = new ArrayList<>(3);
-        String plateauSize = "";
-        String startPosition = "";
         String instructions = "";
         String regexMatch = Instruction.L.name() + Instruction.R.name() + Instruction.M.name();
-
-        //get plateau size
-        plateauSize = PlateauParser.getPlateauSize();
-        roverInstructions.add(plateauSize);
-        //get start position
-        startPosition = LandingPositionParser.getStartPosition(plateauSize);
-        roverInstructions.add(LandingPositionParser.validateStartPosition(scanner, startPosition, plateauSize));
 
         //get instructions
         System.out.println("Enter your instructions for the Rover: ");
@@ -32,10 +21,7 @@ public class InstructionParser {
             System.out.println("Instructions can only contain L, R or M only. Try again");
             instructions = scanner.next();
         }
-        roverInstructions.add(instructions);
-
-        System.out.println("Rover Instructions are: " + roverInstructions);
-        parseInstructions(roverInstructions);
+        return instructions;
     }
 
     public static void parseInstructions(ArrayList<String> instructions) {
