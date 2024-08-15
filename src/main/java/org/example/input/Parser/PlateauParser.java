@@ -1,5 +1,7 @@
 package org.example.input.Parser;
 
+import org.example.input.PlateauSize;
+
 import java.util.Scanner;
 
 public class PlateauParser {
@@ -25,5 +27,11 @@ public class PlateauParser {
         }
         //@TODO close scanner
         return plateauSize;
+    }
+
+    public static PlateauSize parsePlateauInput (String plateauSizeInput) {
+        String[] plateauValues = plateauSizeInput.split(",");
+
+        return PlateauSize.getInstance(Integer.parseInt(plateauValues[0]), Integer.parseInt(plateauValues[1]));
     }
 }

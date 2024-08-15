@@ -27,7 +27,6 @@ public class InstructionParser {
     public static void parseInstructions(ArrayList<String> instructions) {
         System.out.println("In parseInstructions method to set classes with values");
 
-        //should return the final position - then elsewhere we do other things
     }
 
 }
