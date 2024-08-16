@@ -26,7 +26,6 @@ public class Rover {
     }
 
     public CompassDirection rotate(Instruction instruction, CompassDirection facing) {
-        RoverPosition newPosition = new RoverPosition();
         CompassDirection compassDirection = null;
         int returnPosInt = 0;
 
@@ -55,5 +54,24 @@ public class Rover {
         }
 
         return compassDirection;
+    }
+
+    public void move(Rover rover) {
+        CompassDirection facing = rover.roverPosition.getFacing();
+        int x = rover.getRoverPosition().getX();
+        int y = rover.getRoverPosition().getY();
+
+        if(facing == CompassDirection.N) {
+            rover.getRoverPosition().setY(y+1);
+        }
+        if(facing == CompassDirection.E) {
+            rover.getRoverPosition().setX(x+1);
+        }
+        if(facing == CompassDirection.S) {
+            rover.getRoverPosition().setY(y-1);
+        }
+        if(facing == CompassDirection.W) {
+            rover.getRoverPosition().setX(x-1);
+        }
     }
 }
