@@ -30,17 +30,17 @@ class RoverPositionTest {
 
         assertEquals(CompassDirection.W, newDirection);
     }
-/*
+
     @Test
     @DisplayName("Implement test to remain South when passed M whilst facing South")
     void noRotationWhenPassedMTest() {
         RoverPosition roverPosition = new RoverPosition();
         roverPosition.setFacing(CompassDirection.S);
-        RoverPosition newRoverDirection = roverPosition.rotate(Instruction.M, roverPosition.getFacing());
+        CompassDirection newDirection = rover.rotate(Instruction.M, roverPosition.getFacing());
 
-        assertEquals(CompassDirection.S.name(), newRoverDirection.getFacing());
+        assertEquals(CompassDirection.S, newDirection);
     }
-
+/*
     @Test
     @DisplayName("Implement test to move Rover when passed M whilst facing East within plateau scope")
     void moveWhenPassedMFacingEastWithinPlateauTest() {

@@ -51,11 +51,8 @@ public class Rover {
         }
 
         if(instruction.name().equalsIgnoreCase(Instruction.M.name())) {
-            //M = move forward
+            compassDirection = facing;
         }
-
-        //Then set new facing direction dependent on instruction above
-        //Set new (x,y) if moving.
 
         return compassDirection;
     }
