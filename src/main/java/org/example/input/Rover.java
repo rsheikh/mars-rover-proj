@@ -21,6 +21,10 @@ public class Rover {
         return roverPosition;
     }
 
+    public String getRoverPositionToString() {
+        return "(" +roverPosition.getX() + "," + roverPosition.getY() +") facing " + roverPosition.getFacing().name();
+    }
+
     public void setRoverPosition(RoverPosition roverPosition) {
         this.roverPosition = roverPosition;
     }

@@ -1,15 +1,26 @@
 package org.example.input.Parser;
 
 import org.example.input.CompassDirection;
+import org.example.input.Rover;
 import org.example.input.RoverPosition;
 
 import java.util.Scanner;
 
 public class LandingPositionParser {
 
+    public static String getRoverName() {
+        Scanner scanner = new Scanner(System.in);
+        String roverName = "";
+        System.out.println("Enter a name for your new rover: ");
+        roverName = scanner.next();
+
+        return roverName;
+    }
+
     public static String getStartPosition(String plateauSize) {
         Scanner scanner = new Scanner(System.in);
         String startPosition = "";
+
         System.out.println("Enter your landing position and facing direction (x, y, direction):");
         startPosition = scanner.next();
         String[] startPosArray = startPosition.split(",");
@@ -59,12 +70,15 @@ public class LandingPositionParser {
         return true;
     }
 
-    public static RoverPosition parseStartingPosition(String startPositionInput) {
+    public static Rover parseStartingPosition(String name, String startPositionInput) {
+        Rover rover;
         String[] startPositionValues = startPositionInput.split(",");
+
         RoverPosition position = new RoverPosition();
         position.setX(Integer.parseInt(startPositionValues[0]));
         position.setY(Integer.parseInt(startPositionValues[1]));
         String direction = startPositionValues[2];
+
         if(direction.equalsIgnoreCase(CompassDirection.N.toString()))
             position.setFacing(CompassDirection.N);
         if(direction.equalsIgnoreCase(CompassDirection.E.toString()))
@@ -74,6 +88,8 @@ public class LandingPositionParser {
         if(direction.equalsIgnoreCase(CompassDirection.W.toString()))
             position.setFacing(CompassDirection.W);
 
-        return position;
+        rover = new Rover(name, position);
+
+        return rover;
     }
 }
