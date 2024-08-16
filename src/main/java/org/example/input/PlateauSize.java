@@ -1,9 +1,14 @@
 package org.example.input;
 
+import java.util.ArrayList;
+
 public class PlateauSize {
     private static PlateauSize instance;
 
     private int sizeX;
+    private int sizeY;
+
+    private ArrayList<Rover> rovers;
 
     public static PlateauSize getInstance() {
         return instance;
@@ -29,8 +34,6 @@ public class PlateauSize {
         this.sizeY = sizeY;
     }
 
-    private int sizeY;
-
     private PlateauSize(int sizeX, int sizeY) {
         this.sizeX = sizeX;
         this.sizeY = sizeY;
@@ -43,7 +46,15 @@ public class PlateauSize {
         return instance;
     }
 
-//    public PlateauSize(int sizeX, int sizeY) {
+    public ArrayList<Rover> getRovers() {
+        return rovers;
+    }
+
+    public void setRovers(ArrayList<Rover> rovers) {
+        this.rovers = rovers;
+    }
+
+    //    public PlateauSize(int sizeX, int sizeY) {
 //       if(sizeX <= 0 || sizeY <= 0)
 //            throw new IllegalArgumentException("Values for the Plateau cannot be less than 0");
 //

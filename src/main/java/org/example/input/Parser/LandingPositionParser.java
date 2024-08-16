@@ -1,6 +1,7 @@
 package org.example.input.Parser;
 
 import org.example.input.CompassDirection;
+import org.example.input.PlateauSize;
 import org.example.input.Rover;
 import org.example.input.RoverPosition;
 
