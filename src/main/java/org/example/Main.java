@@ -12,7 +12,7 @@ public class Main {
 
         System.out.println("Hello - welcome to Red's Rover App!");
 
-        ArrayList<String> instructions = InitiateRoverSetup.getUserInput();
+        ArrayList<String> instructions = MissionControl.getUserInput();
 
         PlateauSize plateauSize = PlateauParser.parsePlateauInput(instructions.getFirst());
         Rover rover = LandingPositionParser.parseStartingPosition(instructions.get(1), instructions.get(2));
@@ -20,7 +20,7 @@ public class Main {
 
         System.out.println("Rover " + rover.getName() + " has successfully landed at " + rover.getRoverPositionToString());
 
-        InitiateRoverSetup.moveTheRover(rover, instructionList, plateauSize);
+        MissionControl.moveTheRover(rover, instructionList, plateauSize);
         System.out.println("Rover " + rover.getName() + " is on the move and reached " + rover.getRoverPositionToString());
     }
 }

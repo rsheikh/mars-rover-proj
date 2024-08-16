@@ -7,7 +7,7 @@ import org.example.input.Parser.PlateauParser;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class InitiateRoverSetup {
+public class MissionControl {
 
     public static ArrayList<String> getUserInput() {
         Scanner scanner = new Scanner(System.in);
