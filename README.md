@@ -20,7 +20,7 @@
 
 `Enter size of the Plateau (x,y):`
 
-* Pass in values for the plateau size as comma-delimited co-ordinates e.g. 5,5
+* Pass in values for the plateau size as comma-delimited co-ordinates e.g. `5,5`
 
 `Enter a name for your new rover:`
 
@@ -29,11 +29,11 @@
 `Enter your landing position and facing direction (x, y, direction):`
 
 * Pass in comma-delimited co-ordinates for where your new rover will land with a letter denoting the 
-compass direction your rover will be facing e.g. 3,2,N
+compass direction your rover will be facing e.g. `3,2,N`
 
 `Enter your instructions for the Rover:`
 
-* Pass in directions for your rover to get moving e.g MMLM denoting move 2 spaces in the direction
+* Pass in directions for your rover to get moving e.g `MMLM` denoting move 2 spaces in the direction
 the lunar is facing, rotate left, move 1 space again.
 
 * You'll get an output similar to:
@@ -44,10 +44,10 @@ the lunar is facing, rotate left, move 1 space again.
 
 
 
-Built With
-Maven - Dependency Management
-JUnit - Testing
-Contributing
+###### Built With
 
-Author
-Rehana S.
+###### Maven - Dependency Management
+
+###### JUnit - Testing
+
+###### Author - Rehana S.
