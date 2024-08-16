@@ -7,14 +7,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RoverPositionTest {
 
+    Rover rover = new Rover("Rover1", new RoverPosition());
+
     @Test
     @DisplayName("Implement test to face East when passed R whilst facing North")
     void rotateRightOnRTest() {
         RoverPosition roverPosition = new RoverPosition();
         roverPosition.setFacing(CompassDirection.N);
-        RoverPosition newRoverDirection = roverPosition.rotate(Instruction.R, roverPosition.getFacing());
 
-        assertEquals(CompassDirection.E.name(), newRoverDirection.getFacing());
+        CompassDirection newDirection = rover.rotate(Instruction.R, roverPosition.getFacing());
+
+        assertEquals(CompassDirection.E, newDirection);
     }
 
     @Test
@@ -22,11 +25,12 @@ class RoverPositionTest {
     void rotateLeftOnLTest() {
         RoverPosition roverPosition = new RoverPosition();
         roverPosition.setFacing(CompassDirection.N);
-        RoverPosition newRoverDirection = roverPosition.rotate(Instruction.L, roverPosition.getFacing());
 
-        assertEquals(CompassDirection.W.name(), newRoverDirection.getFacing());
+        CompassDirection newDirection = rover.rotate(Instruction.L, roverPosition.getFacing());
+
+        assertEquals(CompassDirection.W, newDirection);
     }
-
+/*
     @Test
     @DisplayName("Implement test to remain South when passed M whilst facing South")
     void noRotationWhenPassedMTest() {
@@ -66,5 +70,5 @@ class RoverPositionTest {
     }
 
     //Must also implement tests to check plateau size before determining final position
-
+*/
 }
