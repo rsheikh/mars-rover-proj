@@ -1,7 +1,7 @@
 package org.example.input.Parser;
 
 import org.example.input.CompassDirection;
-import org.example.input.Position;
+import org.example.input.RoverPosition;
 
 import java.util.Scanner;
 
@@ -59,9 +59,9 @@ public class LandingPositionParser {
         return true;
     }
 
-    public static Position parseStartingPosition(String startPositionInput) {
+    public static RoverPosition parseStartingPosition(String startPositionInput) {
         String[] startPositionValues = startPositionInput.split(",");
-        Position position = new Position();
+        RoverPosition position = new RoverPosition();
         position.setX(Integer.parseInt(startPositionValues[0]));
         position.setY(Integer.parseInt(startPositionValues[1]));
         String direction = startPositionValues[2];

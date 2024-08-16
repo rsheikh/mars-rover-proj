@@ -6,7 +6,7 @@ import org.example.input.Parser.InstructionParser;
 import org.example.input.Parser.LandingPositionParser;
 import org.example.input.Parser.PlateauParser;
 import org.example.input.PlateauSize;
-import org.example.input.Position;
+import org.example.input.RoverPosition;
 
 import java.util.ArrayList;
 
@@ -18,7 +18,7 @@ public class Main {
         ArrayList<String> instructions = InitiateRoverSetup.getUserInput();
 
         PlateauSize plateauSize = PlateauParser.parsePlateauInput(instructions.getFirst());
-        Position landingPosition = LandingPositionParser.parseStartingPosition(instructions.get(1));
+        RoverPosition landingPosition = LandingPositionParser.parseStartingPosition(instructions.get(1));
         ArrayList<Instruction> instructionList = InstructionParser.parseInstructions(instructions.getLast());
 
     }

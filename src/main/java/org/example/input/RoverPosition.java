@@ -1,6 +1,6 @@
 package org.example.input;
 
-public class Position {
+public class RoverPosition {
     private int x;
     private int y;
     private CompassDirection facing;
@@ -27,5 +27,18 @@ public class Position {
 
     public void setFacing(CompassDirection facing) {
         this.facing = facing;
+    }
+
+    public RoverPosition rotate(Instruction instruction, CompassDirection facing) {
+        RoverPosition newPosition = new RoverPosition();
+        //check instruction and perform 1 of following 3:
+        //M = move forward
+        //L = rotate counter-clockwise
+        //R = rotate clockwise
+
+        //Then set new facing direction dependent on instruction above
+        //Set new (x,y) if moving.
+
+        return newPosition;
     }
 }
