@@ -56,22 +56,38 @@ public class Rover {
         return compassDirection;
     }
 
-    public void move(Rover rover) {
+    public void move(Rover rover, PlateauSize plateauSize) {
         CompassDirection facing = rover.roverPosition.getFacing();
+
+        int plateauX = plateauSize.getSizeX();
+        int plateauY = plateauSize.getSizeY();
+
         int x = rover.getRoverPosition().getX();
         int y = rover.getRoverPosition().getY();
 
         if(facing == CompassDirection.N) {
-            rover.getRoverPosition().setY(y+1);
+            if(rover.getRoverPosition().getY() == plateauY)
+                rover.getRoverPosition().setY(0);
+            else
+                rover.getRoverPosition().setY(y+1);
         }
         if(facing == CompassDirection.E) {
-            rover.getRoverPosition().setX(x+1);
+            if(rover.getRoverPosition().getX() == plateauX)
+                rover.getRoverPosition().setX(0);
+            else
+                rover.getRoverPosition().setX(x+1);
         }
         if(facing == CompassDirection.S) {
-            rover.getRoverPosition().setY(y-1);
+            if(rover.getRoverPosition().getY() != 0)
+                rover.getRoverPosition().setY(y-1);
+            else
+                rover.getRoverPosition().setY(plateauY);
         }
         if(facing == CompassDirection.W) {
-            rover.getRoverPosition().setX(x-1);
+            if(rover.getRoverPosition().getX() != 0)
+                rover.getRoverPosition().setX(x-1);
+            else
+                rover.getRoverPosition().setX(plateauX);
         }
     }
 }

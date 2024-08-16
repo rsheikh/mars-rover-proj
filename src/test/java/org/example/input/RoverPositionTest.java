@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RoverPositionTest {
 
+    PlateauSize plateauSize = PlateauSize.getInstance(4,4);
     Rover rover = new Rover("Rover1", new RoverPosition());
 
     @Test
@@ -50,7 +51,7 @@ class RoverPositionTest {
         currentPosition.setY(0);
         rover.setRoverPosition(currentPosition);
 
-        rover.move(rover);
+        rover.move(rover, plateauSize);
 
         assertEquals(1, rover.getRoverPosition().getX());
         assertEquals(0, rover.getRoverPosition().getY());
@@ -66,7 +67,7 @@ class RoverPositionTest {
         currentPosition.setY(0);
         rover.setRoverPosition(currentPosition);
 
-        rover.move(rover);
+        rover.move(rover, plateauSize);
 
         assertEquals(0, rover.getRoverPosition().getX());
         assertEquals(1, rover.getRoverPosition().getY());
@@ -82,7 +83,7 @@ class RoverPositionTest {
         currentPosition.setY(5);
         rover.setRoverPosition(currentPosition);
 
-        rover.move(rover);
+        rover.move(rover, plateauSize);
 
         assertEquals(6, rover.getRoverPosition().getX());
         assertEquals(4, rover.getRoverPosition().getY());
@@ -98,27 +99,75 @@ class RoverPositionTest {
         currentPosition.setY(5);
         rover.setRoverPosition(currentPosition);
 
-        rover.move(rover);
+        rover.move(rover, plateauSize);
 
         assertEquals(5, rover.getRoverPosition().getX());
         assertEquals(5, rover.getRoverPosition().getY());
         assertEquals(CompassDirection.W, rover.getRoverPosition().getFacing());
     }
-/*
-    @Test
-    @DisplayName("Implement test to move Rover when passed M whilst facing South within plateau scope")
-    void moveWhenPassedMFacingSWithinPlateau() {
-        RoverPosition roverPosition = new RoverPosition();
-        roverPosition.setFacing(CompassDirection.S);
-        roverPosition.setX(4);
-        roverPosition.setY(2);
-        RoverPosition newRoverPosition = roverPosition.rotate(Instruction.M, roverPosition.getFacing());
 
-        assertEquals(4, newRoverPosition.getX());
-        assertEquals(1, newRoverPosition.getY());
-        assertEquals(CompassDirection.S, newRoverPosition.getFacing());
+    @Test
+    @DisplayName("Implement test to move Rover when passed M whilst facing West outside plateau scope")
+    void moveWhenPassedMFacingWOutsidePlateauTest() {
+        RoverPosition currentPosition = new RoverPosition();
+        currentPosition.setFacing(CompassDirection.W);
+        currentPosition.setX(0);
+        currentPosition.setY(0);
+        rover.setRoverPosition(currentPosition);
+
+        rover.move(rover, plateauSize);
+        //Loop like the moon!
+        assertEquals(4, rover.getRoverPosition().getX());
+        assertEquals(0, rover.getRoverPosition().getY());
+        assertEquals(CompassDirection.W, rover.getRoverPosition().getFacing());
     }
 
-    //Must also implement tests to check plateau size before determining final position
-*/
+    @Test
+    @DisplayName("Implement test to move Rover when passed M whilst facing East outside plateau scope")
+    void moveWhenPassedMFacingEOutsidePlateauTest() {
+        RoverPosition currentPosition = new RoverPosition();
+        currentPosition.setFacing(CompassDirection.E);
+        currentPosition.setX(4);
+        currentPosition.setY(2);
+        rover.setRoverPosition(currentPosition);
+
+        rover.move(rover, plateauSize);
+        //Loop like the moon!
+        assertEquals(0, rover.getRoverPosition().getX());
+        assertEquals(2, rover.getRoverPosition().getY());
+        assertEquals(CompassDirection.E, rover.getRoverPosition().getFacing());
+    }
+
+    @Test
+    @DisplayName("Implement test to move Rover when passed M whilst facing North outside plateau scope")
+    void moveWhenPassedMFacingNOutsidePlateauTest() {
+        RoverPosition currentPosition = new RoverPosition();
+        currentPosition.setFacing(CompassDirection.N);
+        currentPosition.setX(2);
+        currentPosition.setY(4);
+        rover.setRoverPosition(currentPosition);
+
+        rover.move(rover, plateauSize);
+        //Loop like the moon!
+        assertEquals(2, rover.getRoverPosition().getX());
+        assertEquals(0, rover.getRoverPosition().getY());
+        assertEquals(CompassDirection.N, rover.getRoverPosition().getFacing());
+    }
+
+    @Test
+    @DisplayName("Implement test to move Rover when passed M whilst facing South outside plateau scope")
+    void moveWhenPassedMFacingSOutsidePlateauTest() {
+        RoverPosition currentPosition = new RoverPosition();
+        currentPosition.setFacing(CompassDirection.S);
+        currentPosition.setX(4);
+        currentPosition.setY(0);
+        rover.setRoverPosition(currentPosition);
+
+        rover.move(rover, plateauSize);
+        //Loop like the moon!
+        assertEquals(4, rover.getRoverPosition().getX());
+        assertEquals(4, rover.getRoverPosition().getY());
+        assertEquals(CompassDirection.S, rover.getRoverPosition().getFacing());
+    }
+
 }

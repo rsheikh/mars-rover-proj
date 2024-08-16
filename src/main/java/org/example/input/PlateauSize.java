@@ -4,6 +4,31 @@ public class PlateauSize {
     private static PlateauSize instance;
 
     private int sizeX;
+
+    public static PlateauSize getInstance() {
+        return instance;
+    }
+
+    public static void setInstance(PlateauSize instance) {
+        PlateauSize.instance = instance;
+    }
+
+    public int getSizeX() {
+        return sizeX;
+    }
+
+    public void setSizeX(int sizeX) {
+        this.sizeX = sizeX;
+    }
+
+    public int getSizeY() {
+        return sizeY;
+    }
+
+    public void setSizeY(int sizeY) {
+        this.sizeY = sizeY;
+    }
+
     private int sizeY;
 
     private PlateauSize(int sizeX, int sizeY) {
@@ -13,7 +38,7 @@ public class PlateauSize {
 
     public static PlateauSize getInstance(int sizeX, int sizeY) {
         if(instance == null) {
-            instance = new PlateauSize(sizeX, sizeX);
+            instance = new PlateauSize(sizeX, sizeY);
         }
         return instance;
     }
