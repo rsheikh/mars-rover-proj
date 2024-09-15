@@ -9,7 +9,7 @@
 
 ### A place where rovers can be created and explore uncharted territory, pick up strange objects and become friendly with the aliens! 
 
-#### _This is unfinished._
+#### _This is a work in progress._
 
 ## Getting Started
 
